@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Temporarily Unavailable</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #0a0a0c;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    /* Background gradients */
+    .bg-ellipses {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(119, 227, 255, 0.08) 0%, rgba(0,0,0,0) 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 500px;
+      padding: 40px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      backdrop-filter: blur(12px);
+      z-index: 2;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .error-icon {
+      font-size: 64px;
+      margin-bottom: 24px;
+      color: rgba(255, 255, 255, 0.4);
+      display: inline-block;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.05); opacity: 0.8; color: #77e3ff; }
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0 0 16px 0;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 32px 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      background: #ffffff;
+      color: #0a0a0c;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.2s ease-in-out;
+      border: 1px solid #ffffff;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: #ffffff;
+      box-shadow: 0 0 20px rgba(119, 227, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-ellipses"></div>
+  <div class="container">
+    <div class="error-icon">⚡</div>
+    <h1>Site Temporarily Unavailable</h1>
+    <p>This project website is currently undergoing maintenance or is temporarily not working. Please check back later.</p>
+    <a href="javascript:window.close()" class="btn">Close Tab</a>
+  </div>
+</body>
+</html>

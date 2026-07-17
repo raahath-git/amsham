@@ -1,0 +1,16 @@
+{
+  "name": "nyro-framer-clone",
+  "version": "1.0.0",
+  "description": "An exact replica of the Nyro Framer template website",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "nodemailer": "^9.0.3"
+  }
+}
