@@ -102,6 +102,25 @@
     <link rel="icon" href="/favicon.png" type="image/png">
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Mobile Responsiveness & Overflow Protection -->
+    <style>
+      html, body {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+      }
+      @media (max-width: 809px) {
+        body {
+          overflow-x: hidden !important;
+        }
+        .framer-13i1f67 {
+          width: 100% !important;
+          text-align: center !important;
+          margin: 0 auto !important;
+        }
+      }
+    </style>
+
 </head>
 <body>
   <div class="bg-ellipses"></div>
