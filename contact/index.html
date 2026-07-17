@@ -610,23 +610,43 @@
 
     
 
-    <!-- FAQ Section Scroll Fix -->
+    
+
+    <!-- Ultimate FAQ Scroll Fix -->
     <script>
       (function() {
-        function clearFaqHash() {
-          if (window.location.hash.indexOf('faq') !== -1) {
-            try {
-              history.replaceState(null, '', window.location.pathname + window.location.search);
-            } catch(e) {}
-          }
-        }
-
         function scrollToFaqElement() {
-          var faqEl = document.getElementById('faq') || document.querySelector('[id="faq"]') || document.querySelector('.framer-1vj11qe-container') || document.querySelector('.framer-YKkjR');
-          if (faqEl) {
-            faqEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          var faqEl = document.getElementById('faq') || document.querySelector('[id="faq"]') || document.querySelector('.framer-YKkjR');
+
+          if (!faqEl) {
+            var els = document.querySelectorAll('section, div, h4, h6, p');
+            for (var i = 0; i < els.length; i++) {
+              var txt = els[i].textContent || '';
+              if (txt.indexOf('Here are some quick answers') !== -1 || txt.indexOf('How long does it take') !== -1) {
+                faqEl = els[i];
+                break;
+              }
+            }
           }
-          setTimeout(clearFaqHash, 500);
+
+          if (faqEl) {
+            var rect = faqEl.getBoundingClientRect();
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var targetY = rect.top + scrollTop - 20;
+
+            window.scrollTo({
+              top: targetY,
+              behavior: 'smooth'
+            });
+          }
+
+          setTimeout(function() {
+            if (window.location.hash.indexOf('faq') !== -1) {
+              try {
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+              } catch(e) {}
+            }
+          }, 600);
         }
 
         document.addEventListener('click', function(e) {
@@ -648,7 +668,7 @@
                   document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
                 } catch(err) {}
 
-                setTimeout(scrollToFaqElement, 100);
+                setTimeout(scrollToFaqElement, 150);
                 return;
               }
             }
