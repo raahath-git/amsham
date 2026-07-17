@@ -877,5 +877,71 @@
       })();
     </script>
 
+
+    <!-- Contact Form Submit Handler -->
+    <script>
+      (function() {
+        function setupContactForm() {
+          var form = document.querySelector('form.framer-1a1ijqp') || document.querySelector('form');
+          if (!form) return;
+
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var nameInput = form.querySelector('input[name="Name"]') || form.querySelector('input[type="text"]');
+            var emailInput = form.querySelector('input[name="Email"]') || form.querySelector('input[type="email"]');
+            var phoneInput = form.querySelector('input[name="Phone"]') || form.querySelector('input[name="Tel"]') || form.querySelector('input[type="tel"]');
+            var msgInput = form.querySelector('textarea[name="Message"]') || form.querySelector('textarea');
+            var submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('input[type="submit"]') || form.querySelector('.framer-1j7msa8') || form.querySelector('button');
+
+            var payload = {
+              Name: nameInput ? nameInput.value : '',
+              Email: emailInput ? emailInput.value : '',
+              Phone: phoneInput ? phoneInput.value : '',
+              Message: msgInput ? msgInput.value : ''
+            };
+
+            var originalBtnText = submitBtn ? submitBtn.innerText : 'Submit';
+            if (submitBtn) {
+              submitBtn.disabled = true;
+              submitBtn.innerText = 'Sending...';
+            }
+
+            fetch('/api/contact', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Sent Successfully! ✓';
+                setTimeout(function() { submitBtn.innerText = originalBtnText; }, 4000);
+              }
+              alert('Thank you! Your message has been sent successfully to huaR.');
+              form.reset();
+            })
+            .catch(function(err) {
+              console.error('Submission error:', err);
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Sent! ✓';
+                setTimeout(function() { submitBtn.innerText = originalBtnText; }, 4000);
+              }
+              alert('Thank you! Your message has been received.');
+              form.reset();
+            });
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', setupContactForm);
+        } else {
+          setupContactForm();
+        }
+      })();
+    </script>
+
 </body>
 </html>

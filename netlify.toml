@@ -1,0 +1,37 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/projects"
+  to = "/projects/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/projects/aerolink"
+  to = "/projects/aerolink/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/projects/courto"
+  to = "/projects/courto/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/projects/driveon"
+  to = "/projects/driveon/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/privacy-policy/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms-of-service"
+  to = "/terms-of-service/index.html"
+  status = 200

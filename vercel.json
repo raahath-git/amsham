@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/projects", "destination": "/projects/index.html" },
+    { "source": "/projects/aerolink", "destination": "/projects/aerolink/index.html" },
+    { "source": "/projects/courto", "destination": "/projects/courto/index.html" },
+    { "source": "/projects/driveon", "destination": "/projects/driveon/index.html" },
+    { "source": "/contact", "destination": "/contact/index.html" },
+    { "source": "/privacy-policy", "destination": "/privacy-policy/index.html" },
+    { "source": "/terms-of-service", "destination": "/terms-of-service/index.html" }
+  ]
+}
