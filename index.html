@@ -608,60 +608,43 @@
     <!-- End of bodyEnd -->
     
 
-    <!-- FAQ scroll fix: force scroll every time #faq is clicked even if hash already matches -->
+    
+
+    <!-- Pro Developer FAQ Navigation Fix: clean hash state management -->
     <script>
       (function() {
-        function scrollToFaq() {
-          var faqEl = document.getElementById('faq') || document.querySelector('[id="faq"]');
-          if (faqEl) {
-            faqEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        function clearFaqHash() {
+          if (window.location.hash === '#faq' || window.location.hash === '/#faq') {
+            try {
+              history.replaceState(null, '', window.location.pathname + window.location.search);
+            } catch(e) {}
           }
-          setTimeout(function() {
-            if (window.location.hash === '#faq') {
-              try {
-                history.replaceState(null, '', window.location.pathname + window.location.search);
-              } catch(e) {}
-            }
-          }, 400);
         }
 
-        window.addEventListener('hashchange', function() {
+        // Clear hash on scroll
+        window.addEventListener('scroll', function() {
           if (window.location.hash === '#faq') {
-            scrollToFaq();
+            clearFaqHash();
           }
-        });
+        }, { passive: true });
 
+        // Intercept clicks on menu or FAQ links in capture phase
         document.addEventListener('click', function(e) {
           var el = e.target;
           while (el && el !== document.body) {
             var href = el.getAttribute ? el.getAttribute('href') : null;
-            var isFaqLink = (href && (href === '#faq' || href === '/#faq' || href.endsWith('#faq'))) || 
-                            (el.hash === '#faq') ||
-                            (href && href.indexOf('faq') !== -1);
-            
-            if (isFaqLink) {
-              var isHomePage = (window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '');
-              if (isHomePage) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Close menu overlay
-                try {
-                  var closeBtns = document.querySelectorAll('[data-framer-name*="Close"], [data-framer-name*="close"], .framer-2nvn7f');
-                  closeBtns.forEach(function(btn) { try { btn.click(); } catch(err){} });
-                  document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
-                } catch(err) {}
+            var isFaq = (href && (href === '#faq' || href === '/#faq' || href.endsWith('#faq'))) || (el.hash === '#faq');
+            var isMenu = el.getAttribute && (el.getAttribute('data-framer-name') === 'Menu' || el.getAttribute('data-framer-name') === 'menu');
 
-                scrollToFaq();
-                return;
-              }
+            if (isFaq || isMenu) {
+              clearFaqHash();
             }
             el = el.parentElement;
           }
         }, true);
 
         if (window.location.hash === '#faq') {
-          setTimeout(scrollToFaq, 300);
+          setTimeout(clearFaqHash, 800);
         }
       })();
     </script>
