@@ -542,41 +542,56 @@
     <!-- End of bodyEnd -->
     
 
-    <!-- Pro Developer FAQ Navigation Fix: clean hash state management -->
+    
+
+    <!-- FAQ Section Scroll Fix -->
     <script>
       (function() {
         function clearFaqHash() {
-          if (window.location.hash === '#faq' || window.location.hash === '/#faq') {
+          if (window.location.hash.indexOf('faq') !== -1) {
             try {
               history.replaceState(null, '', window.location.pathname + window.location.search);
             } catch(e) {}
           }
         }
 
-        // Clear hash on scroll
-        window.addEventListener('scroll', function() {
-          if (window.location.hash === '#faq') {
-            clearFaqHash();
+        function scrollToFaqElement() {
+          var faqEl = document.getElementById('faq') || document.querySelector('[id="faq"]') || document.querySelector('.framer-1vj11qe-container') || document.querySelector('.framer-YKkjR');
+          if (faqEl) {
+            faqEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
-        }, { passive: true });
+          setTimeout(clearFaqHash, 500);
+        }
 
-        // Intercept clicks on menu or FAQ links in capture phase
         document.addEventListener('click', function(e) {
           var el = e.target;
           while (el && el !== document.body) {
             var href = el.getAttribute ? el.getAttribute('href') : null;
-            var isFaq = (href && (href === '#faq' || href === '/#faq' || href.endsWith('#faq'))) || (el.hash === '#faq');
-            var isMenu = el.getAttribute && (el.getAttribute('data-framer-name') === 'Menu' || el.getAttribute('data-framer-name') === 'menu');
+            var isFaq = (href && (href === '#faq' || href === '/#faq' || href.endsWith('#faq') || href.indexOf('faq') !== -1)) || 
+                        (el.hash && el.hash.indexOf('faq') !== -1);
 
-            if (isFaq || isMenu) {
-              clearFaqHash();
+            if (isFaq) {
+              var isHomePage = (window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '');
+              if (isHomePage) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                try {
+                  var closeBtns = document.querySelectorAll('[data-framer-name*="Close"], [data-framer-name*="close"], .framer-2nvn7f');
+                  closeBtns.forEach(function(b) { try { b.click(); } catch(err){} });
+                  document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+                } catch(err) {}
+
+                setTimeout(scrollToFaqElement, 100);
+                return;
+              }
             }
             el = el.parentElement;
           }
         }, true);
 
-        if (window.location.hash === '#faq') {
-          setTimeout(clearFaqHash, 800);
+        if (window.location.hash.indexOf('faq') !== -1) {
+          setTimeout(scrollToFaqElement, 300);
         }
       })();
     </script>
