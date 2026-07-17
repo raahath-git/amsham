@@ -682,5 +682,107 @@
       })();
     </script>
 
+
+    <!-- Badge Capsule & Holographic Propeller Icon Injector -->
+    <style>
+      [data-framer-name="Notable Work Container"] {
+        display: inline-flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        padding: 8px 22px 8px 16px !important;
+        border-radius: 100px !important;
+        border: 0.7px solid rgba(255, 255, 255, 0.3) !important;
+        background: #0a0a0c !important;
+        backdrop-filter: blur(25px) !important;
+        -webkit-backdrop-filter: blur(25px) !important;
+        box-sizing: border-box !important;
+      }
+      [data-framer-name="Notable Work Container"] [data-framer-name="Shape"],
+      [data-framer-name="Notable Work Container"] .framer-12o7nxt,
+      [data-framer-name="Notable Work Container"] .framer-sj957v,
+      [data-framer-name="Notable Work Container"] .framer-glvz7t {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        width: 20px !important;
+        height: 20px !important;
+        margin: 0 !important;
+      }
+      .holographic-propeller-svg {
+        width: 20px !important;
+        height: 20px !important;
+        flex-shrink: 0 !important;
+        display: inline-block !important;
+        vertical-align: middle !important;
+      }
+    </style>
+    <script>
+      (function() {
+        var rawSvg = `<svg width="20" height="21" viewBox="0 0 20 21" fill="none" class="holographic-propeller-svg" style="flex-shrink:0;width:20px;height:21px;margin-right:8px;display:inline-block;vertical-align:middle;">
+  <defs>
+    <radialGradient id="holo_prop_radial_global" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0.952381 1.16667) rotate(49.672) scale(22.7366)">
+      <stop stop-color="#F2FFFF"/>
+      <stop offset="0.192708" stop-color="#F8FDDA"/>
+      <stop offset="0.375" stop-color="#F9E3FE"/>
+      <stop offset="0.572917" stop-color="#CBD0FF"/>
+      <stop offset="0.776042" stop-color="#B5FFD7"/>
+      <stop offset="1" stop-color="#BDEAFF"/>
+    </radialGradient>
+    <linearGradient id="holo_prop_linear_global" x1="0" y1="0.5" x2="18.7723" y2="21.5926" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/>
+      <stop offset="0.192708" stop-color="white"/>
+      <stop offset="0.401042" stop-color="#CBD0FF"/>
+      <stop offset="0.614583" stop-color="white"/>
+      <stop offset="0.817708" stop-color="#B5FFD7"/>
+      <stop offset="1" stop-color="white"/>
+    </linearGradient>
+  </defs>
+  <path d="M10 20.5C9.16667 20.5 8.47222 20.2309 7.91667 19.6927C7.36111 19.1545 7.08333 18.5035 7.08333 17.7396C7.08333 17.3056 7.17014 16.9149 7.34375 16.5677C7.51736 16.2205 7.82118 15.8385 8.25521 15.4219C8.7066 15.0052 9.0625 14.6146 9.32292 14.25C9.60069 13.8681 9.73958 13.5382 9.73958 13.2604V12.3229C9.35764 12.2361 9.0191 12.0625 8.72396 11.8021C8.44618 11.5243 8.26389 11.1944 8.17708 10.8125H7.23958C6.94444 10.8125 6.59722 10.9514 6.19792 11.2292C5.79861 11.5069 5.41667 11.8455 5.05208 12.2448C4.6875 12.6441 4.32292 12.9392 3.95833 13.1302C3.61111 13.3212 3.21181 13.4167 2.76042 13.4167C1.97917 13.4167 1.31944 13.1389 0.78125 12.5833C0.260417 12.0278 0 11.3333 0 10.5C0 9.66667 0.260417 8.97222 0.78125 8.41667C1.31944 7.86111 1.97917 7.58333 2.76042 7.58333C3.48958 7.58333 4.11458 7.84375 4.63542 8.36458C5.15625 8.88542 5.625 9.32812 6.04167 9.69271C6.45833 10.0573 6.85764 10.2396 7.23958 10.2396H8.17708C8.26389 9.84028 8.44618 9.51041 8.72396 9.25C9.0191 8.97222 9.35764 8.79861 9.73958 8.72916V7.79167C9.73958 7.34028 9.39236 6.76736 8.69792 6.07292L8.15104 5.52604C7.43924 4.81424 7.08333 4.05903 7.08333 3.26042C7.08333 2.47917 7.36111 1.82812 7.91667 1.30729C8.48958 0.769097 9.18403 0.5 10 0.5C10.8333 0.5 11.5278 0.769097 12.0833 1.30729C12.6389 1.84549 12.9167 2.49653 12.9167 3.26042C12.9167 4.14583 12.4826 4.97917 11.6146 5.76042C10.7465 6.55903 10.3125 7.23611 10.3125 7.79167V8.72916C10.7118 8.79861 11.0417 8.97222 11.3021 9.25C11.5799 9.51041 11.7535 9.84028 11.8229 10.2396H12.7604C13.3507 10.2396 14.0278 9.79687 14.7917 8.91146C15.5729 8.02604 16.3889 7.58333 17.2396 7.58333C18.0208 7.58333 18.6719 7.86979 19.1927 8.44271C19.7309 8.99826 20 9.68403 20 10.5C20 11.3333 19.7309 12.0278 19.1927 12.5833C18.6545 13.1389 18.0035 13.4167 17.2396 13.4167C16.5104 13.4167 15.8941 13.1649 15.3906 12.6615C14.8872 12.158 14.4184 11.724 13.9844 11.3594C13.5503 10.9948 13.1424 10.8125 12.7604 10.8125H11.8229C11.684 11.6458 11.1806 12.1493 10.3125 12.3229V13.2604C10.3125 13.7812 10.7465 14.4497 11.6146 15.2656C12.4826 16.0816 12.9167 16.9062 12.9167 17.7396C12.9167 18.5208 12.6302 19.1719 12.0573 19.6927C11.5017 20.2309 10.816 20.5 10 20.5Z" fill="url(#holo_prop_radial_global)"/>
+  <path d="M10 20.5C9.16667 20.5 8.47222 20.2309 7.91667 19.6927C7.36111 19.1545 7.08333 18.5035 7.08333 17.7396C7.08333 17.3056 7.17014 16.9149 7.34375 16.5677C7.51736 16.2205 7.82118 15.8385 8.25521 15.4219C8.7066 15.0052 9.0625 14.6146 9.32292 14.25C9.60069 13.8681 9.73958 13.5382 9.73958 13.2604V12.3229C9.35764 12.2361 9.0191 12.0625 8.72396 11.8021C8.44618 11.5243 8.26389 11.1944 8.17708 10.8125H7.23958C6.94444 10.8125 6.59722 10.9514 6.19792 11.2292C5.79861 11.5069 5.41667 11.8455 5.05208 12.2448C4.6875 12.6441 4.32292 12.9392 3.95833 13.1302C3.61111 13.3212 3.21181 13.4167 2.76042 13.4167C1.97917 13.4167 1.31944 13.1389 0.78125 12.5833C0.260417 12.0278 0 11.3333 0 10.5C0 9.66667 0.260417 8.97222 0.78125 8.41667C1.31944 7.86111 1.97917 7.58333 2.76042 7.58333C3.48958 7.58333 4.11458 7.84375 4.63542 8.36458C5.15625 8.88542 5.625 9.32812 6.04167 9.69271C6.45833 10.0573 6.85764 10.2396 7.23958 10.2396H8.17708C8.26389 9.84028 8.44618 9.51041 8.72396 9.25C9.0191 8.97222 9.35764 8.79861 9.73958 8.72916V7.79167C9.73958 7.34028 9.39236 6.76736 8.69792 6.07292L8.15104 5.52604C7.43924 4.81424 7.08333 4.05903 7.08333 3.26042C7.08333 2.47917 7.36111 1.82812 7.91667 1.30729C8.48958 0.769097 9.18403 0.5 10 0.5C10.8333 0.5 11.5278 0.769097 12.0833 1.30729C12.6389 1.84549 12.9167 2.49653 12.9167 3.26042C12.9167 4.14583 12.4826 4.97917 11.6146 5.76042C10.7465 6.55903 10.3125 7.23611 10.3125 7.79167V8.72916C10.7118 8.79861 11.0417 8.97222 11.3021 9.25C11.5799 9.51041 11.7535 9.84028 11.8229 10.2396H12.7604C13.3507 10.2396 14.0278 9.79687 14.7917 8.91146C15.5729 8.02604 16.3889 7.58333 17.2396 7.58333C18.0208 7.58333 18.6719 7.86979 19.1927 8.44271C19.7309 8.99826 20 9.68403 20 10.5C20 11.3333 19.7309 12.0278 19.1927 12.5833C18.6545 13.1389 18.0035 13.4167 17.2396 13.4167C16.5104 13.4167 15.8941 13.1649 15.3906 12.6615C14.8872 12.158 14.4184 11.724 13.9844 11.3594C13.5503 10.9948 13.1424 10.8125 12.7604 10.8125H11.8229C11.684 11.6458 11.1806 12.1493 10.3125 12.3229V13.2604C10.3125 13.7812 10.7465 14.4497 11.6146 15.2656C12.4826 16.0816 12.9167 16.9062 12.9167 17.7396C12.9167 18.5208 12.6302 19.1719 12.0573 19.6927C11.5017 20.2309 10.816 20.5 10 20.5Z" fill="url(#holo_prop_linear_global)" style="mix-blend-mode: overlay; opacity: 0.8;"/>
+</svg>`;
+
+        function ensureBadgeIcons() {
+          var containers = document.querySelectorAll('[data-framer-name="Notable Work Container"]');
+          containers.forEach(function(c) {
+            // Ensure flex centering
+            c.style.display = 'inline-flex';
+            c.style.flexDirection = 'row';
+            c.style.alignItems = 'center';
+            c.style.justifyContent = 'center';
+
+            var shape = c.querySelector('[data-framer-name="Shape"]') || c.querySelector('.framer-12o7nxt') || c.querySelector('.framer-sj957v') || c.querySelector('.framer-glvz7t');
+            if (shape) {
+              if (!shape.querySelector('.holographic-propeller-svg')) {
+                shape.innerHTML = rawSvg;
+              }
+            } else {
+              // If shape wrapper is missing, prepend icon
+              if (!c.querySelector('.holographic-propeller-svg')) {
+                var wrapper = document.createElement('div');
+                wrapper.className = 'framer-12o7nxt';
+                wrapper.setAttribute('data-framer-name', 'Shape');
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.justifyContent = 'center';
+                wrapper.style.flexShrink = '0';
+                wrapper.innerHTML = rawSvg;
+                c.insertBefore(wrapper, c.firstChild);
+              }
+            }
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', ensureBadgeIcons);
+        } else {
+          ensureBadgeIcons();
+        }
+        setInterval(ensureBadgeIcons, 500);
+      })();
+    </script>
+
 </body>
 </html>
